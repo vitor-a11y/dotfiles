@@ -1,0 +1,50 @@
+# ============================================
+# i3blocks - Tema minimalista colorido
+# João Vitor - Arch Linux
+# ============================================
+#
+# # Paleta de cores (Catppuccin Mocha)
+# Azul:   #89b4fa
+# Verde:  #a6e3a1
+# Amarelo:#f9e2af
+# Vermelho:#f38ba8
+# Cinza:  #313244
+# Texto:  #cdd6f4
+#
+separator=false
+markup=none
+
+[cpu]
+command=~/.config/i3blocks/scripts/cpu
+interval=1
+background=#313244
+color=#a6e3a1
+border=#a6e3a1
+
+[memory]
+command=~/.config/i3blocks/scripts/memory
+interval=5
+background=#1e1e2e
+color=#89b4fa
+border=#89b4fa
+
+[battery]
+command=~/.config/i3blocks/scripts/battery
+interval=10
+background=#313244
+color=#89b4fa
+border=#89b4fa
+
+[volume]
+command=~/.config/i3blocks/scripts/volume
+interval=2
+background=#313244
+color=#f38ba8
+border=#f38ba8
+
+[time]
+command=date "+%a %d/%m/%Y %H:%M"
+interval=5
+background=#313244
+color=#cdd6f4
+border=#cdd6f4

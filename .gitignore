@@ -1,0 +1,6 @@
+# Ignorar arquivos temporários
+*.swp
+*.swo
+*.bak
+*.tmp
+*.DS_Store

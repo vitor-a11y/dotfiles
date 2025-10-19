@@ -1,0 +1,14 @@
+#!/usr/bin/env bash
+# Mostra o nível da bateria (para notebooks)
+# Adaptável ao nome real da bateria (ex: BAT0, BAT1)
+
+BAT=$(ls /sys/class/power_supply/ | grep -m1 BAT)
+if [ -z "$BAT" ]; then
+    echo "Sem bateria"
+    exit 0
+fi
+
+capacity=$(cat /sys/class/power_supply/$BAT/capacity)
+status=$(cat /sys/class/power_supply/$BAT/status)
+
+echo "Bateria: ${capacity}% ($status)"

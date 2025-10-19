@@ -1,0 +1,16 @@
+#!/usr/bin/env bash
+# Mostra volume atual (requer alsa-utils)
+
+if ! command -v amixer &>/dev/null; then
+    echo "Sem som"
+    exit 0
+fi
+
+vol=$(amixer get Master | grep -Eo "[0-9]+%" | head -n1)
+mute=$(amixer get Master | grep -o "\[off\]" | head -n1)
+
+if [ "$mute" = "[off]" ]; then
+    echo "Volume: Mudo"
+else
+    echo "Volume: $vol"
+fi
