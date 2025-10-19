@@ -1,0 +1,22 @@
+#!/usr/bin/env bash
+
+# Script: net_status
+# Mostra o status da conexão de rede para i3blocks
+# Funciona com Ethernet ou Wi-Fi
+
+# Detecta interface conectada
+iface=$(ip route | grep '^default' | awk '{print $5}')
+
+# Se nenhuma interface estiver conectada
+if [ -z "$iface" ]; then
+    echo "Offline"
+    exit 0
+fi
+
+# Testa conexão com a internet (ping rápido)
+ping -c 1 -W 1 8.8.8.8 > /dev/null 2>&1
+if [ $? -eq 0 ]; then
+    echo "Online ($iface)"
+else
+    echo "Sem acesso ($iface)"
+fi
